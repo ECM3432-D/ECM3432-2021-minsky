@@ -8,9 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "main": "(cd ./minsky-gatsby && yarn build) && (cd ./minsky-one && mvn jetty:run)",
+    "main": "yarn build && yarn backend",
     "build": "cd ./minsky-gatsby && yarn && yarn build",
-    "frontend": "cd ./minsky-gatsby && yarn && yarn develop"
+    "frontend": "cd ./minsky-gatsby && yarn && yarn develop",
+    "backend": "cd ./minsky-one && mvn jetty:run"
   },
   "license": "MIT",
   "dependencies": {
