@@ -5,7 +5,7 @@ language: node_js
 node_js:
 - lts/*
 script:
-- (cd minsky-gatsby && yarn install && yarn build) 
+- (cd minsky-gatsby && yarn install && yarn build)
 - (cd minsky-one && mvn package; export MAVEN_RESULT=$?)
 - if [ "$MAVEN_RESULT" -ne 0 ]; then exit 1; fi
 before_deploy:
@@ -22,4 +22,3 @@ deploy:
   draft: false
   on:
     repo: ECM3432-D/ECM3432-2021-minsky
-    tags: false
