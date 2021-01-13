@@ -22,4 +22,4 @@ deploy:
   draft: false
   on:
     repo: ECM3432-D/ECM3432-2021-minsky
-    tags: true
+    tags: false
