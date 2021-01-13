@@ -4,10 +4,14 @@ jdk:
 language: node_js
 node_js:
 - lts/*
-script:
-- (cd minsky-gatsby && yarn install && yarn build) 
-- (cd minsky-one && mvn package; export MAVEN_RESULT=$?)
-- if [ "$MAVEN_RESULT" -ne 0 ]; then exit 1; fi
+jobs:
+  include:
+    - stage: "Backend Build"
+      script: cd minsky-one && mvn package; export MAVEN_RESULT=$?
+    - stage: "Frontend Build"
+      script: cd minsky-gatsby && yarn install && yarn build
+    - stage: "Maven build success check"
+      script: if [ "$MAVEN_RESULT" -ne 0 ]; then exit 1; fi
 before_deploy:
 - export TAGNAME=`git describe --tags --abbrev=0`
 - deploy-scripts/before-deploy.sh
@@ -22,4 +26,3 @@ deploy:
   draft: false
   on:
     repo: ECM3432-D/ECM3432-2021-minsky
-    tags: true
