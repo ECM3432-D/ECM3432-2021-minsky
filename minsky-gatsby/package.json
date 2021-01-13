@@ -37,8 +37,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
-    "postbuild": "rm -rf ../minsky-one/src/main/webapp/static;cp -r public/ ../minsky-one/src/main/webapp/static",
+    "build": "rm -rf .cache && gatsby build --prefix-paths",
+    "postbuild": "rm -rf ../minsky-one/src/main/webapp/static && cp -r public/ ../minsky-one/src/main/webapp/static -v",
     "brokenpostbuild": "mv ./public/ ../minsky-one/src/main/webapp/static",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
