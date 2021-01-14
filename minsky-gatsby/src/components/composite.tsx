@@ -144,7 +144,7 @@ class Composite extends React.Component<MyProps>{
                         <Slider axis="y" y={this.state.y} onChange={
                             ({ x, y }) => { this.setState({ y: y }) }
                         } style={{ height: this.props.height, visibility: this.state.vis }} />
-                        <canvas onMouseMove={this._onMouseMove.bind(this)} className="image" ref="canvas"
+                        <canvas onMouseMove={this._onMouseMove.bind(this)} className="north" id="rotation" ref="canvas"
                             width={this.props.width} height={this.props.height} />
                     </div>
                     <div>

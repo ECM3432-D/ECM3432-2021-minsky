@@ -31,6 +31,40 @@ const IndexPage = () => {
     setPlotMax(max)
   }
 
+
+function buttonClickedLeft(){
+		console.log("button clicked");
+    var img = document.getElementById('rotation');
+    if(img.classList.contains("north")){
+        img.setAttribute("class", "east");
+    }else if(img.classList.contains("east")){
+        img.setAttribute('class','south');
+    }else if(img.classList.contains('south')){
+        img.setAttribute('class','west');
+    }else if(img.classList.contains('west')){
+        img.setAttribute('class','north');
+    }
+else img.setAttribute('class', 'die');
+	}
+
+function buttonClickedRight(){
+		console.log("button clicked");
+    var img = document.getElementById('rotation');
+    if(img.classList.contains("north")){
+        img.setAttribute("class", "west");
+    }else if(img.classList.contains("west")){
+        img.setAttribute('class','south');
+    }else if(img.classList.contains('south')){
+        img.setAttribute('class','east');
+    }else if(img.classList.contains('east')){
+        img.setAttribute('class','north');
+    }
+else img.setAttribute('class', 'die');
+	}
+	
+	
+
+
   return (
 
     <Layout>
@@ -40,8 +74,14 @@ const IndexPage = () => {
       <div className="row">
         <Composite id="comp"  width={480} height={640} callback={fn} controls="off" />
         <TemperaturePlot id="plot" width={300} height={400} pal={200} latest={plotData} min={plotMin} max={plotMax} />
-      </div>
+     <div>
+	<button id="rotateButtonLeft" className="btn btn-primary" onClick={buttonClickedLeft}>Rotate left</button>
+	<button id="rotateButtonRight" className="btn btn-primary" onClick={buttonClickedRight}>Rotate right</button>
+	</div>
+</div>
+	
     </Layout>
+
   )
 }
 
